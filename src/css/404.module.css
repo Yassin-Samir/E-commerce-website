@@ -1,0 +1,10 @@
+.error {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 40vh;
+  font-size: 3rem;
+}
+.error a {
+  font-weight: bold;
+}
