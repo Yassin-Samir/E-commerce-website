@@ -9,15 +9,16 @@ import LightBlue1 from "../assets/8.jpg";
 import { add } from "../redux/store";
 import { useDispatch } from "react-redux";
 import style from "../css/products.module.css";
+import { useCallback } from "react";
 function Product({ hoodieImage, index }) {
   const dispatch = useDispatch();
-  const AddToCart = () => {
+  const AddToCart = useCallback(() => {
     dispatch(
       add({
         index,
       })
     );
-  };
+  }, [index]);
   return (
     <div className={style.product}>
       <div className={style.img}>

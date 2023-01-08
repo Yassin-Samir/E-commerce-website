@@ -1,9 +1,17 @@
 import { useSelector } from "react-redux";
+import { createSelector } from "@reduxjs/toolkit";
 import style from "../../css/checkout.module.css";
-import { Fragment, memo } from "react";
+import { Fragment } from "react";
 import Product from "./product";
+const selector = createSelector(
+  (state) => ({
+    cart: state.cart,
+    total: state.total,
+  }),
+  (output) => output
+);
 function Checkout() {
-  const { cart, total } = useSelector((state) => state);
+  const { cart, total } = useSelector(selector);
   return (
     <Fragment>
       <div className={style.productFather}>
@@ -17,4 +25,4 @@ function Checkout() {
     </Fragment>
   );
 }
-export default memo(Checkout);
+export default Checkout;
